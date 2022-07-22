@@ -1,0 +1,22 @@
+/* rgb(22, 24, 83) 
+
+ | rgb(41, 44, 109) 
+
+  | rgb(250, 237, 240) 
+
+   | rgb(236, 37, 90) */
+.Site{
+  width: 90%;
+  max-width: 1400px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 10px auto;
+}
+.ListOfCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  width: 100%;
+} 
