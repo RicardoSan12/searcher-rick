@@ -23,10 +23,11 @@
   color: rgb(22, 24, 83);
   font-weight: 700;
   padding: 0.8rem;
-  transition: background 400ms, border-bottom 250ms;
+  transition: background 400ms, border-bottom 250ms, color 300ms;
 }
 
 .Header-menu a:hover {
   background: rgb(255, 255, 255);
   border-bottom: 6px solid rgb(236, 37, 90);
+  color: rgb(236, 37, 90);
 }

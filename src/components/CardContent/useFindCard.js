@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
+import getSingleCard from '../../services/getSingleCard';
+
 import { getSingleId } from '../../services/getAll';
-
+ 
 const useFindCard = (paramsId, pathName) => {
-  const [cardInfo, setCardInfo] = useState();
-
+  const [cardInfo, setCardInfo] = useState({});
   useEffect(() => {
-    getSingleId(pathName, paramsId).then((res) => setCardInfo(res));
+    // getSingleCard({resource: pathName, id: paramsId}).then(setCardInfo)
+    getSingleId(pathName, paramsId).then(setCardInfo);
   }, [paramsId]);
 
-  // console.log(cardInfo, cardId);
 
   return {
     cardInfo,

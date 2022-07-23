@@ -19,7 +19,7 @@ const Prueba = () => {
 
   // console.log(element)
   const itemPerson = (item) => {
-    console.log(cosa.current);
+    // console.log(cosa.current);
   };
 
   return (

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { getAll, getSingleId } from '../services/getAll';
 
+import getCards from '../services/getCards';
+
 const useSearch = (inicialSite = 'location') => {
   //useAllandNextPage
   const [cards, setCards] = useState([]);
@@ -8,9 +10,7 @@ const useSearch = (inicialSite = 'location') => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getAll(inicialSite, page) 
-      .then((res) => setCards(res))
-      .catch((e) => console.log(e));
+    getCards({resource: inicialSite, page}).then(setCards)
   }, [page]);
 
   const handleNext = () => setPage(page + 1);

@@ -1,12 +1,7 @@
-.SearchForm,
-form {
+.SearchForm{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.SearchForm {
-  flex-wrap: wrap;
-  gap: .4rem 1rem;
 }
 
 /* .SearchForm form{
@@ -21,14 +16,15 @@ form {
 .SearchForm div #search,
 .SearchForm button {
   padding: 0.8rem;
-  background-color: rgb(236, 37, 90);
-  box-shadow: 6px 8px 1px rgb(250, 237, 240);
+  color: rgb(22, 24, 83);
+  background-color: rgb(250, 237, 240) ;
+  box-shadow: 6px 8px 1px rgb(236, 37, 90);
   transition: background 500ms;
 }
 .SearchForm #search:hover,
 .SearchForm #search:focus,
 .SearchForm button:hover {
-  background: rgb(201, 19, 67);
+  background: rgb(255, 255, 255) ;
 }
 
 .SearchForm div #search {
@@ -37,7 +33,7 @@ form {
   border-top-left-radius: 1.5rem;
 }
 .SearchForm div #search::placeholder {
-  color: rgba(255, 255, 255, 0.541);
+  color: rgba(22, 24, 83, 0.308);
 }
 
 .SearchForm button {

@@ -7,13 +7,6 @@ const getAll = async (pathName = 'character', index = 1) => {
   return results;
 };
 
-const getSingleId = async (pathName = 'location', id = 1) => {
-  // const findId = `/${id}`; // se reutilazar la funcion para que acepte el resultado de getSingleCard
-  const api = `${inicialUrl}${pathName}/${id}`;
-  const data = await fetch(api);
-  if (typeof id !== Array) return await data.json();
-  return 0; // aqui devuelve un array de objetos corregirlo
-};
 
 // ('https://rickandmortyapi.com/api/character/?name=rick&status=alive');
 
@@ -43,7 +36,17 @@ const getSingleCard = async (
   return results; // Solo obtiene url, hay que hacer otra peticion
 };
 
-export { getAll, getSingleId, getSingleCard };
+
+  const getSingleId = async (pathName = 'location', id = 1) => {
+    // const findId = `/${id}`; // se reutilazar la funcion para que acepte el resultado de getSingleCard
+    const api = `${inicialUrl}${pathName}/${id}`;
+    const data = await fetch(api);
+    if (typeof id !== Array) return await data.json();
+    return 0; // aqui devuelve un array de objetos corregirlo cuando le pasas muchos ids
+  };
+
+
+export { getAll, getSingleId};
 
 // personajes
 //name: filter by the given name.
@@ -64,3 +67,5 @@ export { getAll, getSingleId, getSingleCard };
 // const characterURL = `${api}&status=${status}&species=${species}&gender=${gender}`
 //   const locationURL= `${api}&dimesion=${dimension}`
 //   const episodeURL = `${api}&episode=${episode}`
+
+// {name, dimension, residents[], type, || episode, air_date, characters[],  || image, gender, species, status, location.name, episode[]}

@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './CardContent.css';
-import useFindCard from '../../components/CardContent/useFindCard';
+import useSingleCard from '../../hooks/useSingleCard';
 
 import { Link } from 'wouter'; 
 
 // import useSearch from '../../hooks/useSearch';
-// import { getSingleId } from '../../services/getAll';
-import ListContent from '../ListContent'; 
  
 //ListOfCards
 const CardContent = ({ params = {} }) => {
   const { id, site } = params;
-  const { cardInfo } = useFindCard(id, site);
+  const { cardInfo } = useSingleCard(id, site);
 
-  // console.log(cardInfo);
 
   if (site === 'character') return <CardCharacter infoCard={cardInfo} />;
   else if (site === 'location') {
@@ -48,7 +45,7 @@ const CardLocation = ({ infoCard }) => (
       </div>
     )}
   </>
-);
+); 
 
 {
   /* <Link to={item}><img src={`${imgCard}${getIdCard(item)}.jpeg`} alt='' /></Link> */

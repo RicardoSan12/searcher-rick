@@ -20,7 +20,7 @@ const Tags = () => {
           <li>Suspense</li>
         </ul>
       </div>
-      <div>
+      {/* <div>
         <button>Species</button>
         <ul>
           <li>Human</li>
@@ -38,7 +38,7 @@ const Tags = () => {
           <li>Suspense</li>
         </ul>
       </div>
-      <button>Dimesion</button>
+      <button>Dimesion</button> */}
     </div>
   )
 }

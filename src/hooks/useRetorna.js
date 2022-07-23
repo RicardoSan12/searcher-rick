@@ -27,7 +27,7 @@ const useRetorna = (inicialState = '') => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setPalabra(evt.currentTarget.value);
-    console.log(palabra);
+    // console.log(palabra);
   };
 
   const LazyTrending = () => {
@@ -35,7 +35,7 @@ const useRetorna = (inicialState = '') => {
     useEffect(() => {
       const onChange = (entries, observer) => {
         const el = entries[0];
-        console.log(entries);
+        // console.log(entries);
         if (el.isIntersecting) {
           setShow(true);
           observer.disconnect(); // no vuelve a cargar el observer
