@@ -1,12 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import './CardContent.css';
-import useSingleCard from '../../hooks/useSingleCard';
-
-import { Link } from 'wouter';
-
-// import useSearch from '../../hooks/useSearch';
-
-//ListOfCards
 const CardContent = ({ params = {} }) => {
   const { id, site } = params;
   const { cardInfo } = useSingleCard(id, site);
@@ -136,7 +127,3 @@ const getIdCard = (word = 'https://rickandmortyapi.com/api/character/1') => {
   else if (number.length == 44) return number.substring(number.length - 2);
   else return number.substring(number.length - 1);
 };
-
-// const getImg = () => {
-
-// }

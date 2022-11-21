@@ -1,42 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './CardContent.css';
-import useSingleCard from '../../hooks/useSingleCard';
-
+import React from 'react';
 import { Link } from 'wouter';
 
-// import useSearch from '../../hooks/useSearch';
-
-//ListOfCards
-const CardContent = ({ params = {} }) => {
-  const { id, site } = params;
-  const { cardInfo } = useSingleCard(id, site);
-
-  switch (site) {
-    case 'character':
-      return <CardCharacter infoCard={cardInfo} />;
-    case 'location':
-      return <CardLocation infoCard={cardInfo} />;
-    case 'episode':
-      return <CardEpisode infoCard={cardInfo} />;
-    default:
-      return 'Error este lugar no existe';
-  }
-  // if (site === 'character') return <CardCharacter infoCard={cardInfo} />;
-  // else if (site === 'location') {
-  //   return (
-  //     <>
-  //       <CardLocation infoCard={cardInfo} />;{/* <ListContent /> */}
-  //     </>
-  //   );
-  // } else if (site === 'episode') return <CardEpisode infoCard={cardInfo} />;
-  // return 'no hay nada';
-};
-
-const CardGeneral = ({ children }) => {
-  return <section>{children}</section>;
-};
-
-const CardLocation = ({ infoCard }) => (
+export const CardLocation = ({ infoCard }) => (
   <div className="CardContentId">
     {infoCard && (
       <>
@@ -65,7 +30,7 @@ const CardLocation = ({ infoCard }) => (
   // <Link to={`/${menu}/${id}`} className="indexContent"></Link>
 }
 
-const CardEpisode = ({ infoCard }) => (
+export const CardEpisode = ({ infoCard }) => (
   <div className="CardContentId">
     {infoCard && (
       <>
@@ -91,7 +56,7 @@ const CardEpisode = ({ infoCard }) => (
   </div>
 );
 
-const CardCharacter = ({ infoCard }) => (
+export const CardCharacter = ({ infoCard }) => (
   <div className="CardContentId">
     {infoCard && (
       <>
@@ -126,8 +91,6 @@ const CardCharacter = ({ infoCard }) => (
   </div>
 );
 
-export default CardContent;
-
 const imgCard = 'https://rickandmortyapi.com/api/character/avatar/';
 
 const getIdCard = (word = 'https://rickandmortyapi.com/api/character/1') => {
@@ -136,7 +99,3 @@ const getIdCard = (word = 'https://rickandmortyapi.com/api/character/1') => {
   else if (number.length == 44) return number.substring(number.length - 2);
   else return number.substring(number.length - 1);
 };
-
-// const getImg = () => {
-
-// }

@@ -13,22 +13,13 @@ const Site = ({ params }) => {
   const { handleNext, handlePrevious, handleSearch, cardName, findCard } =
     useSearch(site);
 
-  const [loading, setLoding] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      console.log('aaaa');
-      setLoding(!loading);
-    }, 1000);
-  }, []);
-
   return (
     <section className="Site">
       <h1>{site.toUpperCase()}</h1>
       <SearchForm handleSearch={handleSearch} cardName={cardName} />
       <Tags />
       <ListOfCards>
-        {!loading &&
-          findCard.map((card) => (
+        {findCard.map((card) => (
             <ListContent key={card.id} {...card} menu={site} />
           ))}
       </ListOfCards>
