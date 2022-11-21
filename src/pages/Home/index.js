@@ -7,11 +7,12 @@ import { TemaContext } from '../../contexts/Theme';
 
 const Home = () => {
   const { cards, handleNext } = useSearch();
-  const { temita } = useContext(TemaContext);
+  const { temita, changeTemita, temaPrueba } = useContext(TemaContext);
   return (
-    <section className="Home">
+    <section className={`Home ${temita}`}>
+      <div className="modal"></div>
       <div className="Home-history">
-        <h2>Ultimas Busquedas</h2>
+        <h2 onClick={changeTemita}>Ultimas Busquedas</h2>
         {temita}
         {/* <TemaContext.Consumer>
           {(value) => <h3>{value.temita}</h3>}
