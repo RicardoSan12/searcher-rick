@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-import "./ListOfCards.css"
-import ListContent from '../../components/ListContent';
+import './style.css';
 
-const ListOfCards = () => {
-  return (
-    <ul className="ListOfCards">
-      {findCard.map((card) => (
-        <ListContent key={card.id} {...card} menu={site}/>
-      ))}
-    </ul>
-  );
-};
-export default ListOfCards;
+export default function ListOfCards({ children }) {
+  return <ul className="ListOfCards">{children}</ul>;
+}

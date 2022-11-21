@@ -10,25 +10,26 @@ const useSearch = (inicialSite = 'location') => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getCards({resource: inicialSite, page}).then(setCards)
+    getCards({ resource: inicialSite, page }).then(setCards);
   }, [page]);
 
   const handleNext = () => setPage(page + 1);
-  const handlePrevious = () => setPage(page - 1);
+  const handlePrevious = () => setPage((prevPage) => prevPage && prevPage - 1);
 
   const [cardName, setCardName] = useState('');
   const handleSearch = (evt) => setCardName(evt.target.value);
-  
-  let findCard = cards.filter(card => card.name.toLowerCase().includes(cardName.toLowerCase()))
-  
+
+  let findCard = cards.filter((card) =>
+    card.name.toLowerCase().includes(cardName.toLowerCase())
+  );
 
   return {
     cards,
     handleNext,
     handlePrevious,
-    cardName,
+    findCard,
     handleSearch,
-    findCard
+    cardName,
   };
 };
 

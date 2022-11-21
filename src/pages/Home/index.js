@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Home.css';
 import useSearch from '../../hooks/useSearch';
 import ListContent from '../../components/ListContent';
 
+import { TemaContext } from '../../contexts/Theme';
+
 const Home = () => {
   const { cards, handleNext } = useSearch();
+  const { temita } = useContext(TemaContext);
   return (
     <section className="Home">
       <div className="Home-history">
         <h2>Ultimas Busquedas</h2>
+        {temita}
+        {/* <TemaContext.Consumer>
+          {(value) => <h3>{value.temita}</h3>}
+        </TemaContext.Consumer> */}
       </div>
       <div className="Home-recoment">
         <h2>Cosas Recomendadas</h2>

@@ -1,29 +1,36 @@
-import {API_URL} from "./settings"
+import { API_URL } from './settings';
 
 const fromApiResponseToCards = (apiResponse) => {
   const { info, results = [] } = apiResponse;
-
+  // const { count, next, pages, prev } = info
   if (Array.isArray(results)) {
     const cards = results.map((card) => {
-      const { name, image, id, residents=[], episode, characters= [] } = card
-      return {name, image, id,residents, episode, characters, episode}
+      const {
+        name,
+        image,
+        id,
+        residents = [],
+        episode,
+        characters = [],
+      } = card;
+      return { name, image, id, residents, episode, characters, episode };
     });
     return cards;
   }
-  return []
+  return []; // errorApi()
 };
 
-export default function getCards({ resource = 'character', page = 1, keyword }) {
+export default function getCards({ section = 'character', page = 1, keyword }) {
   let endpoint = keyword
-    ? `${resource}/?page=${page}&name=${keyword}`
-    : `${resource}/?page=${page}`;
-    
+    ? `${section}/?page=${page}&name=${keyword}`
+    : `${section}/?page=${page}`;
+
   return fetch(`${API_URL}${endpoint}`)
     .then((res) => res.json())
     .then(fromApiResponseToCards);
-};
-
-
+}
+// Informacion de info
+// const  info = {count: 826,next: "https://rickandmortyapi.com/api/character/?page=2",pages: 42,prev: null}
 
 
 
@@ -42,4 +49,3 @@ export default function getCards({ resource = 'character', page = 1, keyword }) 
 //   }
 //   return []
 // };
-

@@ -14,9 +14,3 @@
   gap: 1.2rem;
   margin: 10px auto;
 }
-.ListOfCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  width: 100%;
-} 

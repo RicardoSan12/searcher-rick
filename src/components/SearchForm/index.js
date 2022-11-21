@@ -3,10 +3,10 @@ import './SearchForm.css';
 
 import useSearch from '../../hooks/useSearch'; 
 
-const SearchForm = () => { 
-  const { cardName, handleSearch } = useSearch();
+const SearchForm = ({ cardName, handleSearch }) => { 
+  // const { cardName, handleSearch } = useSearch();
   // cards.find((item) => item.name == word)
-  return (
+  return ( 
     <>
       <form className="SearchForm">
         <div>

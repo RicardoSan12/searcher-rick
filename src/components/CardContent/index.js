@@ -2,25 +2,38 @@ import React, { useState, useEffect } from 'react';
 import './CardContent.css';
 import useSingleCard from '../../hooks/useSingleCard';
 
-import { Link } from 'wouter'; 
+import { Link } from 'wouter';
 
 // import useSearch from '../../hooks/useSearch';
- 
+
 //ListOfCards
 const CardContent = ({ params = {} }) => {
   const { id, site } = params;
   const { cardInfo } = useSingleCard(id, site);
 
+  switch (site) {
+    case 'character':
+      return <CardCharacter infoCard={cardInfo} />;
+    case 'location':
+      return <CardLocation infoCard={cardInfo} />;
+    case 'episode':
+      return <CardEpisode infoCard={cardInfo} />;
+    default:
+      return 'Error este lugar no existe';
+  }
+  // if (site === 'character') return <CardCharacter infoCard={cardInfo} />;
+  // else if (site === 'location') {
+  //   return (
+  //     <>
+  //       <CardLocation infoCard={cardInfo} />;{/* <ListContent /> */}
+  //     </>
+  //   );
+  // } else if (site === 'episode') return <CardEpisode infoCard={cardInfo} />;
+  // return 'no hay nada';
+};
 
-  if (site === 'character') return <CardCharacter infoCard={cardInfo} />;
-  else if (site === 'location') {
-    return (
-      <>
-        <CardLocation infoCard={cardInfo} />;{/* <ListContent /> */}
-      </>
-    );
-  } else if (site === 'episode') return <CardEpisode infoCard={cardInfo} />;
-  return 'no hay nada';
+const CardGeneral = ({ children }) => {
+  return <section>{children}</section>;
 };
 
 const CardLocation = ({ infoCard }) => (
@@ -45,7 +58,7 @@ const CardLocation = ({ infoCard }) => (
       </div>
     )}
   </>
-); 
+);
 
 {
   /* <Link to={item}><img src={`${imgCard}${getIdCard(item)}.jpeg`} alt='' /></Link> */
